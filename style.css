@@ -1,0 +1,85 @@
+:root {
+    --grid-gap: 5px;
+    --key-width: 50px;
+    --main-ratio: 15.25;
+    --main-multiplier: 4;
+}
+
+.page {
+    width: 1020px;
+    margin: 0 auto;
+    border: 2px solid lightpink;
+}
+
+.virtual-keyboard__keyboard {
+    margin-top: 200px;
+}
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(
+        calc(var(--main-ratio)*var(--main-multiplier)), 
+        calc((var(--key-width) - var(--grid-gap)*(var(--main-multiplier) - 1))/var(--main-multiplier))
+    );
+    grid-template-rows: repeat(5, var(--key-width));
+    gap: var(--grid-gap) var(--grid-gap);
+}
+
+.keyboard__key-switcher {
+    position: relative;
+    box-sizing: border-box;
+    grid-column: span var(--main-multiplier);
+    border: 1px solid lightpink;
+    background-color: lightslategray;
+    color: linen;
+}
+
+.key-switcher_tab {
+    grid-column: span calc(1.5*var(--main-multiplier));
+}
+
+.key-switcher_caps {
+    grid-column: span calc(1.75*var(--main-multiplier));
+}
+
+.key-switcher_backspace {
+    grid-column: span calc(2.25*var(--main-multiplier));
+}
+
+.key-switcher_enter {
+    position: relative;
+    grid-column: span calc(1.75*var(--main-multiplier));
+    grid-row: span 2;
+}
+
+.key-switcher_backslash {
+    grid-column: span 1;
+    width: 50px;
+    position: relative;
+    box-shadow: white var(--grid-gap) 0 0 var(--grid-gap);
+}
+
+.key-switcher_leftshift {
+    grid-column: span calc(1.5*var(--main-multiplier));
+}
+
+.key-switcher_rightshift {
+    grid-column: span calc(2.75*var(--main-multiplier));
+}
+
+
+
+.keyboard__key {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    line-height: var(--key-width);
+
+    visibility: hidden;
+}
+
+.keyboard__key_visible {
+    visibility: visible;
+}
