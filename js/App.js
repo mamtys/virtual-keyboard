@@ -19,7 +19,30 @@ class App extends Component {
   }
 
   initKeyboard(codeTable, languages, currentLanguage) {
-    this.keyboard = new KeyboardContainer(this.textarea, codeTable, languages, currentLanguage);
+    this.keyboard = new KeyboardContainer(
+      this.textarea.getNode(),
+      codeTable,
+      languages,
+      currentLanguage,
+    );
+  }
+
+  getConfig() {
+    const {
+      layout,
+      languages,
+      languageSwitchCombination,
+      currentLanguage,
+      auxiliaryTriggers,
+    } = this;
+
+    return ({
+      layout,
+      languages,
+      languageSwitchCombination,
+      currentLanguage,
+      auxiliaryTriggers,
+    });
   }
 
   changeLayout(layout) {

@@ -15,29 +15,14 @@ class AppContainer extends App {
     this.pressedKeys = new Set();
 
 
-    document.addEventListener('keydown', this.onKeyDown);
-    document.addEventListener('keyup', this.onKeyUp);
-  }
-
-  getConfig() {
-    const {
-      layout,
-      languages,
-      languageSwitchCombination,
-      currentLanguage,
-      auxiliaryTriggers,
-    } = this;
-
-    return ({
-      layout,
-      languages,
-      languageSwitchCombination,
-      currentLanguage,
-      auxiliaryTriggers,
-    });
+    document.addEventListener('keydown', this.onKeyDown.bind(this));
+    document.addEventListener('keyup', this.onKeyUp.bind(this));
   }
 
   onKeyDown(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
     const keyCode = event.code;
     this.pressedKeys.add(keyCode);
     this.keyboard.pressKey(keyCode);
@@ -52,22 +37,34 @@ class AppContainer extends App {
   }
 
   onKeyUp(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
     const keyCode = event.code;
-    this.pressedKeys.remove(keyCode);
-    this.keyboard.pressKey(keyCode);
+
+    this.pressedKeys.delete(keyCode);
+    this.keyboard.releaseKey(keyCode);
   }
 
 
   shouldLanguageSwitch() {
     const { pressedKeys, languageSwitchCombination } = this;
-    return languageSwitchCombination.every(pressedKeys.has);
+    return languageSwitchCombination.every((el) => pressedKeys.has(el));
   }
 
   shouldDisplayAuxiliary() {
     const { pressedKeys, auxiliaryTriggers } = this;
-    return auxiliaryTriggers.some(pressedKeys.has);
+    return auxiliaryTriggers.some((el) => pressedKeys.has(el));
   }
 
+  funcionalKeyCodeHandler(keyCode) {
+    const handler = {
+      Backspace: this.deleteSelected(),
+      Enter: this.returnCarriage(),
+      Space: this.insertSpace(),
+    };
+    return handler[keyCode];
+  }
 }
 
 export default AppContainer;
