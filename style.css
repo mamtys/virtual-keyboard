@@ -25,7 +25,7 @@
     gap: var(--grid-gap) var(--grid-gap);
 }
 
-.keyboard__key-switcher {
+.keyboard__key-code {
     position: relative;
     box-sizing: border-box;
     grid-column: span var(--main-multiplier);
@@ -34,50 +34,84 @@
     color: linen;
 }
 
-.key-switcher_tab {
+.key-code_tab {
     grid-column: span calc(1.5*var(--main-multiplier));
 }
 
-.key-switcher_caps {
+.key-code_capslock {
     grid-column: span calc(1.75*var(--main-multiplier));
 }
 
-.key-switcher_backspace {
+.key-code_backspace {
     grid-column: span calc(2.25*var(--main-multiplier));
 }
 
-.key-switcher_enter {
+.key-code_enter {
     position: relative;
     grid-column: span calc(1.75*var(--main-multiplier));
     grid-row: span 2;
 }
 
-.key-switcher_backslash {
+.key-code_backslash {
     grid-column: span 1;
     width: 50px;
     position: relative;
     box-shadow: white var(--grid-gap) 0 0 var(--grid-gap);
 }
 
-.key-switcher_leftshift {
+.key-code_shiftleft {
     grid-column: span calc(1.5*var(--main-multiplier));
 }
 
-.key-switcher_rightshift {
+.key-code_shiftright {
     grid-column: span calc(2.75*var(--main-multiplier));
+}
+
+.key-code_controlleft {
+    grid-column: span calc(1.75*var(--main-multiplier));
+}
+
+.key-code_osleft {
+    grid-column: span calc(1.25*var(--main-multiplier));
+}
+
+.key-code_altleft {
+    grid-column: span calc(1.25*var(--main-multiplier));
+}
+
+.key-code_space {
+    grid-column: span calc(6*var(--main-multiplier));
+}
+
+.key-code_altright {
+    grid-column: span calc(1.25*var(--main-multiplier));
+}
+
+.key-code_contextmenu {
+    grid-column: span calc(1.5*var(--main-multiplier));
+}
+
+.key-code_controlright {
+    grid-column: span calc(2.25*var(--main-multiplier));
 }
 
 
 
 .keyboard__key {
     position: absolute;
+    cursor: pointer;
     width: 100%;
     top: 0;
     left: 0;
     text-align: center;
     line-height: var(--key-width);
+    height: 100%;
 
     visibility: hidden;
+}
+
+.keyboard__key_pressed {
+    background-color: yellowgreen;
 }
 
 .keyboard__key_visible {
