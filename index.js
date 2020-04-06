@@ -9,7 +9,6 @@ console.log(LocalStorageManager.getUserConfig());
 const virtualKeyboard = new VirtualKeyboard(data, config);
 
 document.body.appendChild(virtualKeyboard.getNode());
-console.log(virtualKeyboard.getNode());
 
 window.addEventListener('beforeunload', () => {
   LocalStorageManager.setUserConfig(virtualKeyboard.getConfig());

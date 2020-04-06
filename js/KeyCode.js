@@ -40,14 +40,6 @@ class KeyCode extends Component {
       {});
   }
 
-  toggleVisible(newKey) {
-
-    console.log('j');
-    this.activeKey.makeInvisible();
-    newKey.makeVisible();
-
-    return true;
-  }
 
   displayLanguage(language) {
     if (this.isFunctional) {
@@ -55,14 +47,15 @@ class KeyCode extends Component {
     }
 
     if (language === this.currentLanguage) {
-      return false;
+      return;
     }
-
 
     const newActive = this.keyTable[language];
 
-    this.toggleVisible(newActive);
+    this.activeKey.makeInvisible();
+    newActive.makeVisible();
 
+    this.currentLanguage = language;
     this.activeKey = newActive;
   }
 

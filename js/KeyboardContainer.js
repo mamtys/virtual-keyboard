@@ -1,9 +1,8 @@
-import Keyboard from './Keyboard.js';
+import Keyboard from './Keyboard';
 
 class KeyboardContainer extends Keyboard {
-  constructor(output, codeTable, languages, currentLanguage) {
-    super(codeTable, languages, currentLanguage);
-    this.output = output;
+  constructor(output, codeTable, config) {
+    super(output, codeTable, config);
     this.wasClicked = false;
 
     this.node.addEventListener('mousedown', this.onMouseDown.bind(this));
@@ -35,7 +34,6 @@ class KeyboardContainer extends Keyboard {
       return;
     }
     if (this.wasClicked) {
-      console.log('out');
       this.releaseKey(code);
       this.wasClicked = false;
     }

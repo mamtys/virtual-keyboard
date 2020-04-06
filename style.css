@@ -1,18 +1,26 @@
 :root {
     --grid-gap: 5px;
-    --key-width: 50px;
+    --key-width: 60px;
     --main-ratio: 15.25;
     --main-multiplier: 4;
+    --key-border-color: lightpink;
+    --key-border-width: 1px;
+    --key-bg-color: lightslategray;
+    --keyboard-bg-color: white;
+    --key-pressed-bg-color: yellowgreen;
 }
 
-.page {
-    width: 1020px;
-    margin: 0 auto;
-    border: 2px solid lightpink;
+.virtual-keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--keyboard-bg-color);
 }
 
 .virtual-keyboard__keyboard {
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 .keyboard {
@@ -29,9 +37,10 @@
     position: relative;
     box-sizing: border-box;
     grid-column: span var(--main-multiplier);
-    border: 1px solid lightpink;
-    background-color: lightslategray;
     color: linen;
+    user-select: none;
+    font-weight: 700;
+    font-size: 20px;
 }
 
 .key-code_tab {
@@ -54,9 +63,7 @@
 
 .key-code_backslash {
     grid-column: span 1;
-    width: 50px;
-    position: relative;
-    box-shadow: white var(--grid-gap) 0 0 var(--grid-gap);
+    width: var(--key-width);
 }
 
 .key-code_shiftleft {
@@ -64,11 +71,11 @@
 }
 
 .key-code_shiftright {
-    grid-column: span calc(2.75*var(--main-multiplier));
+    grid-column: span calc(1.75*var(--main-multiplier));
 }
 
 .key-code_controlleft {
-    grid-column: span calc(1.75*var(--main-multiplier));
+    grid-column: span calc(1.25*var(--main-multiplier));
 }
 
 .key-code_osleft {
@@ -92,7 +99,7 @@
 }
 
 .key-code_controlright {
-    grid-column: span calc(2.25*var(--main-multiplier));
+    grid-column: span calc(1.25*var(--main-multiplier));
 }
 
 
@@ -106,14 +113,51 @@
     text-align: center;
     line-height: var(--key-width);
     height: 100%;
+    background-color: lightslategray;
 
     visibility: hidden;
+    border: var(--key-border-width) solid var(--key-border-color);
 }
 
 .keyboard__key_pressed {
-    background-color: yellowgreen;
+    animation: 0.1s ease-in 1 normal forwards supression;
+    background-color: var(--key-pressed-bg-color);
+}
+
+@keyframes supression {
+    from {
+        transform: scale(100%);
+    }
+    to {
+        transform: scale(85%);
+    }
 }
 
 .keyboard__key_visible {
     visibility: visible;
+}
+
+
+.textarea {
+    width: 100%;
+    resize: none;
+    min-width: 400px;
+    min-height: 300px;
+    font-size: 25px;
+}
+
+.virtual-keyboard__textarea {
+    max-width: 986px;
+}
+
+.keyboard__key[data-code="Enter"]::after {
+    position: absolute;
+    content: '';
+    height: 51.97%;
+    width: 15.45%;
+    bottom: -1px;
+    left: -1px;
+    background-color: var(--keyboard-bg-color);
+    border-right: var(--key-border-width) solid var(--key-border-color);
+    border-top: var(--key-border-width) solid var(--key-border-color);
 }

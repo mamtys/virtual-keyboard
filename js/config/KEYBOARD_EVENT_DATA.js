@@ -1,17 +1,21 @@
 /**
     <layout>: {
         <keycode>: {
+            isFunctional?: <boolean>,
+            value?: <display value for functional codes>
             <locale>: {
                 value: <key value>,
-                auxiliary: {
+                auxiliary?: {
                     <auxiliaryCode>: <auxiliaryKey>
-                }
+                },
             },
             <locale>: ...
         },
         <keycode>: ...
     }
 */
+
+// data taken from https://www.w3.org/TR/uievents-code/#key-media
 const KEYBOARD_EVENT_DATA = {
   QWERTY: new Map([
     ['Backquote', {
@@ -626,22 +630,6 @@ const KEYBOARD_EVENT_DATA = {
       isFunctional: true,
       value: 'Shift',
     }],
-    ['IntlBackslash', {
-      en: {
-        value: '\\',
-        auxiliary: {
-          ShiftLeft: '|',
-          ShiftRight: '|',
-        },
-      },
-      ru: {
-        value: '\\',
-        auxiliary: {
-          ShiftLeft: '/',
-          ShiftRight: '/',
-        },
-      },
-    }],
     ['KeyZ', {
       en: {
         value: 'z',
@@ -806,6 +794,14 @@ const KEYBOARD_EVENT_DATA = {
       isFunctional: true,
       value: 'Shift',
     }],
+    ['ArrowUp', {
+      isFunctional: true,
+      value: '↑',
+    }],
+    ['Delete', {
+      isFunctional: true,
+      value: 'Del',
+    }],
     ['ControlLeft', {
       isFunctional: true,
       value: 'Ctrl',
@@ -820,19 +816,27 @@ const KEYBOARD_EVENT_DATA = {
     }],
     ['Space', {
       isFunctional: true,
-      value: ' ',
+      value: 'Space',
+    }],
+    ['ControlRight', {
+      isFunctional: true,
+      value: 'Ctrl',
     }],
     ['AltRight', {
       isFunctional: true,
       value: 'Alt',
     }],
-    ['ContextMenu', {
+    ['ArrowLeft', {
       isFunctional: true,
-      value: 'menu',
+      value: '←',
     }],
-    ['ControlRight', {
+    ['ArrowDown', {
       isFunctional: true,
-      value: 'Ctrl',
+      value: '↓',
+    }],
+    ['ArrowRight', {
+      isFunctional: true,
+      value: '→',
     }],
   ]),
 };
