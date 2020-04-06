@@ -1,6 +1,8 @@
-import Component from ';
-import KeyboardContainer from './Keyboard';
-import Textarea from './Textarea';
+import Component from '../../lib/Component';
+import KeyboardContainer from '../Keyboard';
+import Textarea from '../Textarea';
+
+import '../../../css/virtual-keyboard.css';
 
 class App extends Component {
   constructor(data, keyboardConfig) {

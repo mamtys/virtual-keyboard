@@ -1,5 +1,5 @@
-import Component from './lib/Component.js';
-import Key from './Key.js';
+import Component from '../../../lib/Component';
+import Key from '../Key';
 
 
 class KeyCode extends Component {

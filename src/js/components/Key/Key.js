@@ -1,4 +1,4 @@
-import Component from './lib/Component.js';
+import Component from '../../../lib/Component';
 
 class Key extends Component {
   constructor({
@@ -10,22 +10,26 @@ class Key extends Component {
     super(`<div class="keyboard__key" data-isfunctional=${Number(isFunctional)} data-code=${code}>${value}</div>`);
     this.mainKey = value;
     this.auxTable = auxiliary;
+
+    this.currentValue = value;
   }
 
   getValue() {
-    return this.mainKey;
+    return this.currentValue;
   }
 
   displayMainKey() {
     this.node.textContent = this.mainKey;
+    this.currentValue = this.mainKey;
   }
 
   displayAuxiliaryKey(auxCode) {
-    if (!this.auxTable) {
+    if (!this.auxTable[auxCode]) {
       return;
     }
 
     this.node.textContent = this.auxTable[auxCode];
+    this.currentValue = this.auxTable[auxCode];
   }
 
   makeVisible() {
