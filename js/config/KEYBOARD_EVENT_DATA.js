@@ -2,7 +2,7 @@
     <layout>: {
         <keycode>: {
             <locale>: {
-                main: <key value>,
+                value: <key value>,
                 auxiliary: {
                     <auxiliaryCode>: <auxiliaryKey>
                 }
@@ -14,714 +14,825 @@
 */
 const KEYBOARD_EVENT_DATA = {
   QWERTY: new Map([
-    [
-      'Backquote',
-      {
-        en: {
-          main: '`',
-          auxiliary: {
-            Shift: '~',
-          },
-        },
-        ru: {
-          main: 'ё',
-          auxiliary: {
-            Shift: 'Ё',
-          },
-        },
-      },
-    ],
-    ['Digit1', {
+    ['Backquote', {
       en: {
-        main: '1',
+        value: '`',
         auxiliary: {
-          Shift: '!',
+          ShiftLeft: '~',
+          ShiftRight: '~',
         },
       },
       ru: {
-        main: '1',
+        value: 'ё',
         auxiliary: {
-          Shift: '!',
+          ShiftLeft: 'Ё',
+          ShiftRight: 'Ё',
+        },
+      },
+    }],
+    ['Digit1', {
+      en: {
+        value: '1',
+        auxiliary: {
+          ShiftLeft: '!',
+          ShiftRight: '!',
+        },
+      },
+      ru: {
+        value: '1',
+        auxiliary: {
+          ShiftLeft: '!',
+          ShiftRight: '!',
         },
       },
     }],
     ['Digit2', {
       en: {
-        main: '2',
+        value: '2',
         auxiliary: {
-          Shift: '@',
+          ShiftLeft: '@',
+          ShiftRight: '@',
         },
       },
       ru: {
-        main: '2',
+        value: '2',
         auxiliary: {
-          Shift: '"',
+          ShiftLeft: '"',
+          ShiftRight: '"',
         },
       },
     }],
     ['Digit3', {
       en: {
-        main: '3',
+        value: '3',
         auxiliary: {
-          Shift: '#',
+          ShiftLeft: '#',
+          ShiftRight: '#',
         },
       },
       ru: {
-        main: '3',
+        value: '3',
         auxiliary: {
-          Shift: '№',
+          ShiftLeft: '№',
+          ShiftRight: '№',
         },
       },
     }],
     ['Digit4', {
       en: {
-        main: '4',
+        value: '4',
         auxiliary: {
-          Shift: '$',
+          ShiftLeft: '$',
+          ShiftRight: '$',
         },
       },
       ru: {
-        main: '4',
+        value: '4',
         auxiliary: {
-          Shift: ';',
+          ShiftLeft: ';',
+          ShiftRight: ';',
         },
       },
     }],
     ['Digit5', {
       en: {
-        main: '5',
+        value: '5',
         auxiliary: {
-          Shift: '%',
+          ShiftLeft: '%',
+          ShiftRight: '%',
         },
       },
       ru: {
-        main: '5',
+        value: '5',
         auxiliary: {
-          Shift: '%',
+          ShiftLeft: '%',
+          ShiftRight: '%',
         },
       },
     }],
     ['Digit6', {
       en: {
-        main: '6',
+        value: '6',
         auxiliary: {
-          Shift: '^',
+          ShiftLeft: '^',
+          ShiftRight: '^',
         },
       },
       ru: {
-        main: '6',
+        value: '6',
         auxiliary: {
-          Shift: ':',
+          ShiftLeft: ':',
+          ShiftRight: ':',
         },
       },
     }],
     ['Digit7', {
       en: {
-        main: '7',
+        value: '7',
         auxiliary: {
-          Shift: '&',
+          ShiftLeft: '&',
+          ShiftRight: '&',
         },
       },
       ru: {
-        main: '7',
+        value: '7',
         auxiliary: {
-          Shift: '?',
+          ShiftLeft: '?',
+          ShiftRight: '?',
         },
       },
     }],
     ['Digit8', {
       en: {
-        main: '8',
+        value: '8',
         auxiliary: {
-          Shift: '*',
+          ShiftLeft: '*',
+          ShiftRight: '*',
         },
       },
       ru: {
-        main: '8',
+        value: '8',
         auxiliary: {
-          Shift: '*',
+          ShiftLeft: '*',
+          ShiftRight: '*',
         },
       },
     }],
     ['Digit9', {
       en: {
-        main: '9',
+        value: '9',
         auxiliary: {
-          Shift: '(',
+          ShiftLeft: '(',
+          ShiftRight: '(',
         },
       },
       ru: {
-        main: '9',
+        value: '9',
         auxiliary: {
-          Shift: '(',
+          ShiftLeft: '(',
+          ShiftRight: '(',
         },
       },
     }],
     ['Digit0', {
       en: {
-        main: '0',
+        value: '0',
         auxiliary: {
-          Shift: ')',
+          ShiftLeft: ')',
+          ShiftRight: ')',
         },
       },
       ru: {
-        main: '0',
+        value: '0',
         auxiliary: {
-          Shift: ')',
+          ShiftLeft: ')',
+          ShiftRight: ')',
         },
       },
     }],
     ['Minus', {
       en: {
-        main: '-',
+        value: '-',
         auxiliary: {
-          Shift: '_',
+          ShiftLeft: '_',
+          ShiftRight: '_',
         },
       },
       ru: {
-        main: '-',
+        value: '-',
         auxiliary: {
-          Shift: '_',
+          ShiftLeft: '_',
+          ShiftRight: '_',
         },
       },
     }],
     ['Equal', {
       en: {
-        main: '=',
+        value: '=',
         auxiliary: {
-          Shift: '+',
+          ShiftLeft: '+',
+          ShiftRight: '+',
         },
       },
       ru: {
-        main: '=',
+        value: '=',
         auxiliary: {
-          Shift: '+',
+          ShiftLeft: '+',
+          ShiftRight: '+',
         },
       },
     }],
     ['Backspace', {
-      en: {
-        main: 'BackSpace',
-        isFunctional: true,
-      },
+      isFunctional: true,
+      value: 'BackSpace',
     }],
     ['Tab', {
-      en: {
-        main: 'Tab',
-        isFunctional: true,
-      },
+      isFunctional: true,
+      value: 'Tab',
     }],
     ['KeyQ', {
       en: {
-        main: 'q',
+        value: 'q',
         auxiliary: {
-          Shift: 'Q',
+          ShiftLeft: 'Q',
+          ShiftRight: 'Q',
         },
       },
       ru: {
-        main: 'й',
+        value: 'й',
         auxiliary: {
-          Shift: 'Й',
+          ShiftLeft: 'Й',
+          ShiftRight: 'Й',
         },
       },
     }],
     ['KeyW', {
       en: {
-        main: 'w',
+        value: 'w',
         auxiliary: {
-          Shift: 'W',
+          ShiftLeft: 'W',
+          ShiftRight: 'W',
         },
       },
       ru: {
-        main: 'ц',
+        value: 'ц',
         auxiliary: {
-          Shift: 'Ц',
+          ShiftLeft: 'Ц',
+          ShiftRight: 'Ц',
         },
       },
     }],
     ['KeyE', {
       en: {
-        main: 'e',
+        value: 'e',
         auxiliary: {
-          Shift: 'E',
+          ShiftLeft: 'E',
+          ShiftRight: 'E',
         },
       },
       ru: {
-        main: 'у',
+        value: 'у',
         auxiliary: {
-          Shift: 'У',
+          ShiftLeft: 'У',
+          ShiftRight: 'У',
         },
       },
     }],
     ['KeyR', {
       en: {
-        main: 'r',
+        value: 'r',
         auxiliary: {
-          Shift: 'R',
+          ShiftLeft: 'R',
+          ShiftRight: 'R',
         },
       },
       ru: {
-        main: 'к',
+        value: 'к',
         auxiliary: {
-          Shift: 'К',
+          ShiftLeft: 'К',
+          ShiftRight: 'К',
         },
       },
     }],
     ['KeyT', {
       en: {
-        main: 't',
+        value: 't',
         auxiliary: {
-          Shift: 'T',
+          ShiftLeft: 'T',
+          ShiftRight: 'T',
         },
       },
       ru: {
-        main: 'е',
+        value: 'е',
         auxiliary: {
-          Shift: 'Е',
+          ShiftLeft: 'Е',
+          ShiftRight: 'Е',
         },
       },
     }],
     ['KeyY', {
       en: {
-        main: 'y',
+        value: 'y',
         auxiliary: {
-          Shift: 'Y',
+          ShiftLeft: 'Y',
+          ShiftRight: 'Y',
         },
       },
       ru: {
-        main: 'н',
+        value: 'н',
         auxiliary: {
-          Shift: 'Н',
+          ShiftLeft: 'Н',
+          ShiftRight: 'Н',
         },
       },
     }],
     ['KeyU', {
       en: {
-        main: 'u',
+        value: 'u',
         auxiliary: {
-          Shift: 'U',
+          ShiftLeft: 'U',
+          ShiftRight: 'U',
         },
       },
       ru: {
-        main: 'г',
+        value: 'г',
         auxiliary: {
-          Shift: 'Г',
+          ShiftLeft: 'Г',
+          ShiftRight: 'Г',
         },
       },
     }],
     ['KeyI', {
       en: {
-        main: 'i',
+        value: 'i',
         auxiliary: {
-          Shift: 'I',
+          ShiftLeft: 'I',
+          ShiftRight: 'I',
         },
       },
       ru: {
-        main: 'ш',
+        value: 'ш',
         auxiliary: {
-          Shift: 'Ш',
+          ShiftLeft: 'Ш',
+          ShiftRight: 'Ш',
         },
       },
     }],
     ['KeyO', {
       en: {
-        main: 'o',
+        value: 'o',
         auxiliary: {
-          Shift: 'O',
+          ShiftLeft: 'O',
+          ShiftRight: 'O',
         },
       },
       ru: {
-        main: 'щ',
+        value: 'щ',
         auxiliary: {
-          Shift: 'Щ',
+          ShiftLeft: 'Щ',
+          ShiftRight: 'Щ',
         },
       },
     }],
     ['KeyP', {
       en: {
-        main: 'p',
+        value: 'p',
         auxiliary: {
-          Shift: 'P',
+          ShiftLeft: 'P',
+          ShiftRight: 'P',
         },
       },
       ru: {
-        main: 'з',
+        value: 'з',
         auxiliary: {
-          Shift: 'З',
+          ShiftLeft: 'З',
+          ShiftRight: 'З',
         },
       },
     }],
     ['BracketLeft', {
       en: {
-        main: '[',
+        value: '[',
         auxiliary: {
-          Shift: '{',
+          ShiftLeft: '{',
+          ShiftRight: '{',
         },
       },
       ru: {
-        main: 'х',
+        value: 'х',
         auxiliary: {
-          Shift: 'Х',
+          ShiftLeft: 'Х',
+          ShiftRight: 'Х',
         },
       },
     }],
     ['BracketRight', {
       en: {
-        main: ']',
+        value: ']',
         auxiliary: {
-          Shift: '}',
+          ShiftLeft: '}',
+          ShiftRight: '}',
         },
       },
       ru: {
-        main: 'ъ',
+        value: 'ъ',
         auxiliary: {
-          Shift: 'Ъ',
+          ShiftLeft: 'Ъ',
+          ShiftRight: 'Ъ',
         },
       },
     }],
     ['Enter', {
-      en: {
-        main: 'Enter',
-        isFunctional: true,
-      },
+      isFunctional: true,
+      value: 'Enter',
     }],
     ['CapsLock', {
-      en: {
-        main: 'Caps Lock',
-        isFunctional: true,
-      },
+      isFunctional: true,
+      value: 'Caps Lock',
     }],
     ['KeyA', {
       en: {
-        main: 'a',
+        value: 'a',
         auxiliary: {
-          Shift: 'A',
+          ShiftLeft: 'A',
+          ShiftRight: 'A',
         },
       },
       ru: {
-        main: 'ф',
+        value: 'ф',
         auxiliary: {
-          Shift: 'Ф',
+          ShiftLeft: 'Ф',
+          ShiftRight: 'Ф',
         },
       },
     }],
     ['KeyS', {
       en: {
-        main: 's',
+        value: 's',
         auxiliary: {
-          Shift: 'S',
+          ShiftLeft: 'S',
+          ShiftRight: 'S',
         },
       },
       ru: {
-        main: 'ы',
+        value: 'ы',
         auxiliary: {
-          Shift: 'Ы',
+          ShiftLeft: 'Ы',
+          ShiftRight: 'Ы',
         },
       },
     }],
     ['KeyD', {
       en: {
-        main: 'd',
+        value: 'd',
         auxiliary: {
-          Shift: 'D',
+          ShiftLeft: 'D',
+          ShiftRight: 'D',
         },
       },
       ru: {
-        main: 'в',
+        value: 'в',
         auxiliary: {
-          Shift: 'В',
+          ShiftLeft: 'В',
+          ShiftRight: 'В',
         },
       },
     }],
     ['KeyF', {
       en: {
-        main: 'f',
+        value: 'f',
         auxiliary: {
-          Shift: 'F',
+          ShiftLeft: 'F',
+          ShiftRight: 'F',
         },
       },
       ru: {
-        main: 'а',
+        value: 'а',
         auxiliary: {
-          Shift: 'А',
+          ShiftLeft: 'А',
+          ShiftRight: 'А',
         },
       },
     }],
     ['KeyG', {
       en: {
-        main: 'g',
+        value: 'g',
         auxiliary: {
-          Shift: 'G',
+          ShiftLeft: 'G',
+          ShiftRight: 'G',
         },
       },
       ru: {
-        main: 'п',
+        value: 'п',
         auxiliary: {
-          Shift: 'П',
+          ShiftLeft: 'П',
+          ShiftRight: 'П',
         },
       },
     }],
     ['KeyH', {
       en: {
-        main: 'h',
+        value: 'h',
         auxiliary: {
-          Shift: 'G',
+          ShiftLeft: 'G',
+          ShiftRight: 'G',
         },
       },
       ru: {
-        main: 'р',
+        value: 'р',
         auxiliary: {
-          Shift: 'Р',
+          ShiftLeft: 'Р',
+          ShiftRight: 'Р',
         },
       },
     }],
     ['KeyJ', {
       en: {
-        main: 'j',
+        value: 'j',
         auxiliary: {
-          Shift: 'H',
+          ShiftLeft: 'H',
+          ShiftRight: 'H',
         },
       },
       ru: {
-        main: 'о',
+        value: 'о',
         auxiliary: {
-          Shift: 'О',
+          ShiftLeft: 'О',
+          ShiftRight: 'О',
         },
       },
     }],
     ['KeyK', {
       en: {
-        main: 'k',
+        value: 'k',
         auxiliary: {
-          Shift: 'J',
+          ShiftLeft: 'J',
+          ShiftRight: 'J',
         },
       },
       ru: {
-        main: 'л',
+        value: 'л',
         auxiliary: {
-          Shift: 'Л',
+          ShiftLeft: 'Л',
+          ShiftRight: 'Л',
         },
       },
     }],
     ['KeyL', {
       en: {
-        main: 'l',
+        value: 'l',
         auxiliary: {
-          Shift: 'L',
+          ShiftLeft: 'L',
+          ShiftRight: 'L',
         },
       },
       ru: {
-        main: 'д',
+        value: 'д',
         auxiliary: {
-          Shift: 'Д',
+          ShiftLeft: 'Д',
+          ShiftRight: 'Д',
         },
       },
     }],
     ['Semicolon', {
       en: {
-        main: ';',
+        value: ';',
         auxiliary: {
-          Shift: ':',
+          ShiftLeft: ':',
+          ShiftRight: ':',
         },
       },
       ru: {
-        main: 'ж',
+        value: 'ж',
         auxiliary: {
-          Shift: 'Ж',
+          ShiftLeft: 'Ж',
+          ShiftRight: 'Ж',
         },
       },
     }],
     ['Quote', {
       en: {
-        main: '\'',
+        value: '\'',
         auxiliary: {
-          Shift: '"',
+          ShiftLeft: '"',
+          ShiftRight: '"',
         },
       },
       ru: {
-        main: 'ж',
+        value: 'ж',
         auxiliary: {
-          Shift: 'Ж',
+          ShiftLeft: 'Ж',
+          ShiftRight: 'Ж',
         },
       },
     }],
     ['Backslash', {
       en: {
-        main: '\\',
+        value: '\\',
         auxiliary: {
-          Shift: '|',
+          ShiftLeft: '|',
+          ShiftRight: '|',
         },
       },
       ru: {
-        main: '\\',
+        value: '\\',
         auxiliary: {
-          Shift: '/',
+          ShiftLeft: '/',
+          ShiftRight: '/',
         },
       },
     }],
     ['ShiftLeft', {
-      en: {
-        main: 'Shift',
-        isFunctional: true,
-      },
+      isFunctional: true,
+      value: 'Shift',
     }],
     ['IntlBackslash', {
       en: {
-        main: '\\',
+        value: '\\',
         auxiliary: {
-          Shift: '|',
+          ShiftLeft: '|',
+          ShiftRight: '|',
         },
       },
       ru: {
-        main: '\\',
+        value: '\\',
         auxiliary: {
-          Shift: '/',
+          ShiftLeft: '/',
+          ShiftRight: '/',
         },
       },
     }],
     ['KeyZ', {
       en: {
-        main: 'z',
+        value: 'z',
         auxiliary: {
-          Shift: 'Z',
+          ShiftLeft: 'Z',
+          ShiftRight: 'Z',
         },
       },
       ru: {
-        main: 'я',
+        value: 'я',
         auxiliary: {
-          Shift: 'Я',
+          ShiftLeft: 'Я',
+          ShiftRight: 'Я',
         },
       },
     }],
     ['KeyX', {
       en: {
-        main: 'x',
+        value: 'x',
         auxiliary: {
-          Shift: 'X',
+          ShiftLeft: 'X',
+          ShiftRight: 'X',
         },
       },
       ru: {
-        main: 'ч',
+        value: 'ч',
         auxiliary: {
-          Shift: 'Ч',
+          ShiftLeft: 'Ч',
+          ShiftRight: 'Ч',
         },
       },
     }],
     ['KeyC', {
       en: {
-        main: 'c',
+        value: 'c',
         auxiliary: {
-          Shift: 'C',
+          ShiftLeft: 'C',
+          ShiftRight: 'C',
         },
       },
       ru: {
-        main: 'с',
+        value: 'с',
         auxiliary: {
-          Shift: 'С',
+          ShiftLeft: 'С',
+          ShiftRight: 'С',
         },
       },
     }],
     ['KeyV', {
       en: {
-        main: 'v',
+        value: 'v',
         auxiliary: {
-          Shift: 'V',
+          ShiftLeft: 'V',
+          ShiftRight: 'V',
         },
       },
       ru: {
-        main: 'м',
+        value: 'м',
         auxiliary: {
-          Shift: 'М',
+          ShiftLeft: 'М',
+          ShiftRight: 'М',
         },
       },
     }],
     ['KeyB', {
       en: {
-        main: 'b',
+        value: 'b',
         auxiliary: {
-          Shift: 'B',
+          ShiftLeft: 'B',
+          ShiftRight: 'B',
         },
       },
       ru: {
-        main: 'и',
+        value: 'и',
         auxiliary: {
-          Shift: 'И',
+          ShiftLeft: 'И',
+          ShiftRight: 'И',
         },
       },
     }],
     ['KeyN', {
       en: {
-        main: 'n',
+        value: 'n',
         auxiliary: {
-          Shift: 'N',
+          ShiftLeft: 'N',
+          ShiftRight: 'N',
         },
       },
       ru: {
-        main: 'т',
+        value: 'т',
         auxiliary: {
-          Shift: 'Т',
+          ShiftLeft: 'Т',
+          ShiftRight: 'Т',
         },
       },
     }],
     ['KeyM', {
       en: {
-        main: 'm',
+        value: 'm',
         auxiliary: {
-          Shift: 'M',
+          ShiftLeft: 'M',
+          ShiftRight: 'M',
         },
       },
       ru: {
-        main: 'ь',
+        value: 'ь',
         auxiliary: {
-          Shift: 'Ь',
+          ShiftLeft: 'Ь',
+          ShiftRight: 'Ь',
         },
       },
     }],
     ['Comma', {
       en: {
-        main: ',',
+        value: ',',
         auxiliary: {
-          Shift: '<',
+          ShiftLeft: '<',
+          ShiftRight: '<',
         },
       },
       ru: {
-        main: 'б',
+        value: 'б',
         auxiliary: {
-          Shift: 'Б',
+          ShiftLeft: 'Б',
+          ShiftRight: 'Б',
         },
       },
     }],
     ['Period', {
       en: {
-        main: '.',
+        value: '.',
         auxiliary: {
-          Shift: '>',
+          ShiftLeft: '>',
+          ShiftRight: '>',
         },
       },
       ru: {
-        main: 'ю',
+        value: 'ю',
         auxiliary: {
-          Shift: 'Ю',
+          ShiftLeft: 'Ю',
+          ShiftRight: 'Ю',
         },
       },
     }],
     ['Slash', {
       en: {
-        main: '/',
+        value: '/',
         auxiliary: {
-          Shift: '?',
+          ShiftLeft: '?',
+          ShiftRight: '?',
         },
       },
       ru: {
-        main: '.',
+        value: '.',
         auxiliary: {
-          Shift: ',',
+          ShiftLeft: ',',
+          ShiftRight: ',',
         },
       },
     }],
     ['ShiftRight', {
-      main: 'Shift',
       isFunctional: true,
+      value: 'Shift',
+    }],
+    ['ControlLeft', {
+      isFunctional: true,
+      value: 'Ctrl',
+    }],
+    ['OSLeft', {
+      isFunctional: true,
+      value: 'Win',
+    }],
+    ['AltLeft', {
+      isFunctional: true,
+      value: 'Alt',
+    }],
+    ['Space', {
+      isFunctional: true,
+      value: ' ',
+    }],
+    ['AltRight', {
+      isFunctional: true,
+      value: 'Alt',
+    }],
+    ['ContextMenu', {
+      isFunctional: true,
+      value: 'menu',
+    }],
+    ['ControlRight', {
+      isFunctional: true,
+      value: 'Ctrl',
     }],
   ]),
 };
