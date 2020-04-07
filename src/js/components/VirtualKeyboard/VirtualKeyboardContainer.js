@@ -1,4 +1,4 @@
-import VirtualKeyboard from '../src/js/components/VirtualKeyboard/VirtualKeyboard';
+import VirtualKeyboard from './VirtualKeyboard';
 
 class VirtualKeyboardContainer extends VirtualKeyboard {
   constructor(data, keyboardKonfig) {

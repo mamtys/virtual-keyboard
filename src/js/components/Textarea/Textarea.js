@@ -1,4 +1,4 @@
-import Component from '../../../lib/Component';
+import Component from '../../lib/Component';
 import getNextEndOfLine from '../../helpers/getNextEndOfLine';
 import getPreviousEndOfLine from '../../helpers/getPreviousEndOfLine';
 

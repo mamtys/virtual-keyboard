@@ -1,4 +1,4 @@
-import Component from '../../../lib/Component';
+import Component from '../../lib/Component';
 import KeyCode from '../KeyCode';
 
 import pick from '../../helpers/pick';
