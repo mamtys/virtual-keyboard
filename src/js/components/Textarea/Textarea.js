@@ -44,9 +44,12 @@ class Textarea extends Component {
   }
 
   deleteNext() {
+    if (this.node.textContent.length === this.node.selectionStart) {
+      return;
+    }
+
     if (this.isNotSelected()) {
       this.node.selectionEnd += 1;
-      this.node.selectionStart -= 1;
     }
 
     this.insert('');
