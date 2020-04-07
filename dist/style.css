@@ -161,3 +161,9 @@
     border-right: var(--key-border-width) solid var(--key-border-color);
     border-top: var(--key-border-width) solid var(--key-border-color);
 }
+
+.virtual-keyboard__doc {
+    margin-top: 50px;
+    font-size: 20px;
+    white-space: pre;
+}

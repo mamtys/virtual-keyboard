@@ -97,6 +97,30 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 
 /***/ }),
 
+/***/ "./src/js/components/Doc/Doc.js":
+/*!**************************************!*\
+  !*** ./src/js/components/Doc/Doc.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _lib_Component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lib/Component */ \"./src/js/lib/Component.js\");\n\n\nclass Doc extends _lib_Component__WEBPACK_IMPORTED_MODULE_0__[\"default\"] {\n    constructor() {\n        super('<div class=\"virtual-keyboard__doc\"></div>');\n        this.node.textContent = 'Keyboard was created at Win OS \\n Lang Switch = Shift + LeftAlt';\n    } \n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Doc);\n\n//# sourceURL=webpack:///./src/js/components/Doc/Doc.js?");
+
+/***/ }),
+
+/***/ "./src/js/components/Doc/index.js":
+/*!****************************************!*\
+  !*** ./src/js/components/Doc/index.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Doc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Doc */ \"./src/js/components/Doc/Doc.js\");\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_Doc__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n\n//# sourceURL=webpack:///./src/js/components/Doc/index.js?");
+
+/***/ }),
+
 /***/ "./src/js/components/Key/Key.js":
 /*!**************************************!*\
   !*** ./src/js/components/Key/Key.js ***!
@@ -321,7 +345,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction pick(table, array) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_VirtualKeyboard_VirtualKeyboardContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/VirtualKeyboard/VirtualKeyboardContainer */ \"./src/js/components/VirtualKeyboard/VirtualKeyboardContainer.js\");\n/* harmony import */ var _config_KEYBOARD_EVENT_DATA__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config/KEYBOARD_EVENT_DATA */ \"./src/js/config/KEYBOARD_EVENT_DATA.js\");\n/* harmony import */ var _helpers_LocalStorageManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/LocalStorageManager */ \"./src/js/helpers/LocalStorageManager.js\");\n/* harmony import */ var _config_KEYBOARD_DEFAULTS__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./config/KEYBOARD_DEFAULTS */ \"./src/js/config/KEYBOARD_DEFAULTS.js\");\n\r\n\r\n\r\n\r\n\r\nconst config = _helpers_LocalStorageManager__WEBPACK_IMPORTED_MODULE_2__[\"default\"].getUserConfig() || _config_KEYBOARD_DEFAULTS__WEBPACK_IMPORTED_MODULE_3__[\"default\"];\r\n\r\nconst virtualKeyboard = new _components_VirtualKeyboard_VirtualKeyboardContainer__WEBPACK_IMPORTED_MODULE_0__[\"default\"](_config_KEYBOARD_EVENT_DATA__WEBPACK_IMPORTED_MODULE_1__[\"default\"], config);\r\n\r\ndocument.body.appendChild(virtualKeyboard.getNode());\r\n\r\nwindow.addEventListener('beforeunload', () => {\r\n  _helpers_LocalStorageManager__WEBPACK_IMPORTED_MODULE_2__[\"default\"].setUserConfig(virtualKeyboard.getKeyboardConfig());\r\n});\r\n\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_VirtualKeyboard_VirtualKeyboardContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/VirtualKeyboard/VirtualKeyboardContainer */ \"./src/js/components/VirtualKeyboard/VirtualKeyboardContainer.js\");\n/* harmony import */ var _config_KEYBOARD_EVENT_DATA__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config/KEYBOARD_EVENT_DATA */ \"./src/js/config/KEYBOARD_EVENT_DATA.js\");\n/* harmony import */ var _helpers_LocalStorageManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/LocalStorageManager */ \"./src/js/helpers/LocalStorageManager.js\");\n/* harmony import */ var _components_Doc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Doc */ \"./src/js/components/Doc/index.js\");\n/* harmony import */ var _config_KEYBOARD_DEFAULTS__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./config/KEYBOARD_DEFAULTS */ \"./src/js/config/KEYBOARD_DEFAULTS.js\");\n\r\n\r\n\r\n\r\n\r\n\r\nconst config = _helpers_LocalStorageManager__WEBPACK_IMPORTED_MODULE_2__[\"default\"].getUserConfig() || _config_KEYBOARD_DEFAULTS__WEBPACK_IMPORTED_MODULE_4__[\"default\"];\r\n\r\nconst virtualKeyboard = new _components_VirtualKeyboard_VirtualKeyboardContainer__WEBPACK_IMPORTED_MODULE_0__[\"default\"](_config_KEYBOARD_EVENT_DATA__WEBPACK_IMPORTED_MODULE_1__[\"default\"], config);\r\nconst doc = new _components_Doc__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\r\n\r\nvirtualKeyboard.appendComponent(doc);\r\ndocument.body.appendChild(virtualKeyboard.getNode());\r\n\r\nwindow.addEventListener('beforeunload', () => {\r\n  _helpers_LocalStorageManager__WEBPACK_IMPORTED_MODULE_2__[\"default\"].setUserConfig(virtualKeyboard.getKeyboardConfig());\r\n});\r\n\n\n//# sourceURL=webpack:///./src/js/index.js?");
 
 /***/ }),
 
