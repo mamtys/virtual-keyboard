@@ -105,7 +105,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _lib_Component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lib/Component */ \"./src/js/lib/Component.js\");\n\r\n\r\nclass Doc extends _lib_Component__WEBPACK_IMPORTED_MODULE_0__[\"default\"] {\r\n    constructor() {\r\n        super('<div class=\"virtual-keyboard__doc\"></div>');\r\n        this.node.textContent = `Warning: I didn't noticed, layout is broken in chrome, use firefox to check functionslity\r\nKeyboard was created at Win OS\r\nLang Switch = Shift + LeftAlt`;\r\n    } \r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Doc);\n\n//# sourceURL=webpack:///./src/js/components/Doc/Doc.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _lib_Component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lib/Component */ \"./src/js/lib/Component.js\");\n\r\n\r\nclass Doc extends _lib_Component__WEBPACK_IMPORTED_MODULE_0__[\"default\"] {\r\n    constructor() {\r\n        super('<div class=\"virtual-keyboard__doc\"></div>');\r\n        this.node.textContent = `Warning: I didn't notice, layout is broken in chrome, use firefox to check functionslity\r\nUPD: fixed chrome bug 08.04.20\r\nKeyboard was created at Win OS\r\nLang Switch = Shift + LeftAlt`;\r\n    } \r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Doc);\n\n//# sourceURL=webpack:///./src/js/components/Doc/Doc.js?");
 
 /***/ }),
 

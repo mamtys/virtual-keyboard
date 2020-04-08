@@ -1,6 +1,6 @@
 :root {
     --grid-gap: 2.5px;
-    --key-width: 65px;
+    --key-width: 60px;
     --main-ratio: 61;
     --grid-rows: 244;
     --main-multiplier: 4;
@@ -137,7 +137,7 @@
 }
 
 .virtual-keyboard__textarea {
-    max-width: 986px;
+    max-width: 976px;
 }
 
 .keyboard__key[data-code="Enter"]::after {
