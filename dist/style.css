@@ -1,0 +1,159 @@
+:root {
+    --grid-gap: 2.5px;
+    --key-width: 60px;
+    --main-ratio: 61;
+    --grid-rows: 244;
+    --main-multiplier: 4;
+    --base-col-span: 4;
+    --cols-in-key: 16; /* --main-multiplier * --base-col-span */
+    --key-border-color: lightpink;
+    --key-border-width: 1px;
+    --key-bg-color: lightslategray;
+    --keyboard-bg-color: white;
+    --key-pressed-bg-color: yellowgreen;
+}
+
+.virtual-keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--keyboard-bg-color);
+}
+
+.virtual-keyboard__keyboard {
+    margin-top: 100px;
+}
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(
+        var(--grid-rows), 
+        calc(var(--key-width)/(var(--cols-in-key) - 1))
+    );
+    grid-template-rows: repeat(5, var(--key-width));
+}
+
+.keyboard__key-code {
+    position: relative;
+    box-sizing: border-box;
+    grid-column: span calc(var(--cols-in-key));
+    color: linen;
+    user-select: none;
+    font-weight: 700;
+    font-size: 20px;
+    padding: var(--grid-gap);
+}
+
+.key-code_tab,
+.key-code_shiftleft,
+.key-code_contextmenu {
+    /* scale x1.5  */
+    --cols-in-key: calc(6 * var(--base-col-span));
+    grid-column: span calc(var(--cols-in-key));
+}
+
+.key-code_capslock,
+.key-code_shiftright {
+    /* scale x1.75  */
+    --cols-in-key: calc(7 * var(--base-col-span));
+    grid-column: span calc(var(--cols-in-key));
+}
+
+.key-code_backspace {
+    /* scale x2.25  */
+    --cols-in-key: calc(9 * var(--base-col-span));
+    grid-column: span var(--cols-in-key);
+}
+
+.key-code_enter {
+    position: relative;
+    /* scale x1.75 */
+    --cols-in-key: calc(7 * var(--base-col-span));
+    grid-column: span var(--cols-in-key);
+    grid-row: span 2;
+}
+
+.key-code_backslash {
+    grid-column: span 4;
+    width: var(--key-width);
+}
+
+.key-code_controlleft,
+.key-code_osleft,
+.key-code_altleft,
+.key-code_altright,
+.key-code_controlright {
+    /** scale 1.25 */
+    --cols-in-key: calc(5 * var(--base-col-span));
+    grid-column: span var(--cols-in-key);
+}
+
+
+.key-code_space {
+    /** scale 6 */
+    --cols-in-key: calc(24 * var(--base-col-span));
+    grid-column: span var(--cols-in-key);
+}
+
+
+.keyboard__key {
+    cursor: pointer;
+    text-align: center;
+    line-height: calc(var(--key-width) - var(--grid-gap));
+    height: 100%;
+    background-color: lightslategray;
+
+    display: none;
+    border: var(--key-border-width) solid var(--key-border-color);
+}
+
+.keyboard__key_visible {
+    display: block;
+}
+
+.keyboard__key_pressed {
+    animation: 0.1s ease-in 1 normal forwards supression;
+    background-color: var(--key-pressed-bg-color);
+}
+
+@keyframes supression {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.85);
+    }
+}
+
+
+.textarea {
+    width: 100%;
+    resize: none;
+    min-width: 400px;
+    min-height: 300px;
+    font-size: 25px;
+}
+
+.virtual-keyboard__textarea {
+    max-width: 976px;
+}
+
+.keyboard__key[data-code="Enter"]::after {
+    position: absolute;
+    content: '';
+    height: 51.97%;
+    width: 15.45%;
+    bottom: -1px;
+    left: -1px;
+    background-color: var(--keyboard-bg-color);
+    border-right: var(--key-border-width) solid var(--key-border-color);
+    border-top: var(--key-border-width) solid var(--key-border-color);
+}
+
+.virtual-keyboard__doc {
+    margin-top: 50px;
+    font-size: 20px;
+    white-space: pre;
+}
